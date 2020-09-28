@@ -1,0 +1,12 @@
+[user]
+	name = Crashix
+	email = xelnaga.hybrid@gmail.com
+[core]
+	editor = emacs
+[alias]
+	st = status
+	br = branch
+	co = checkout
+	cmt = commit
+	last = log -p -1 HEAD
+	s = status -s
