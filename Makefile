@@ -1,3 +1,8 @@
+USER := crashix
+HOST := crashix
+HOME := /home/$(USER)
+OS   := nixos
+
 # =========   Dotfiles with GNU Stow   =========
 
 default: config dunst emacs git gtk i3 lf sh termite vim xorg zsh
@@ -29,8 +34,8 @@ isync: config
 lf: config
 	stow lf
 
-nixos:
-	sudo stow nixos
+nixos: config_root
+	sudo stow ${HOST}
 
 readline: config
 	stow readline
@@ -55,6 +60,9 @@ zsh: config sh
 	stow zsh
 
 config: .stowrc
+
+config_root:
+	echo "--target=/ --dir=${OS}" > .stowrc
 
 .stowrc:
 	echo "--target=${HOME}" > .stowrc
