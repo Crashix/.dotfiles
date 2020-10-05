@@ -12,6 +12,10 @@ all: config bash dunst emacs git gtk i3 isync lf readline sh termite vim xdg xor
 bash: config sh readline
 	stow bash
 
+bspwm: config
+	stow bspwm
+	chmod +x ${HOME}/.config/bspwm/bspwmrc
+
 dunst: config
 	stow dunst
 

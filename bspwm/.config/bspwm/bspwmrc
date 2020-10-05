@@ -1,0 +1,57 @@
+#!/run/current-system/sw/bin/bash
+
+# ------------- STARTUP ---:
+
+# Keybind:
+sxhkd -m -1 &
+
+# Sound:
+alsactl --file ~/.config/asound.state restore
+# Use : 'alsactl --file ~/.config/asound.state store' to save a new config
+
+# Nvidia:
+# nvidia-settings --load-config-only # NVIDIA settings for dual monitor
+
+# -------------- BSPWM ---:
+
+#export MONITOR=$(xrandr -q | grep primary | cut -d' ' -f1)
+#export MONITORS=( $(xrandr -q | grep ' connected' | cut -d' ' -f1) )
+#MONITOR=${MONITOR:-${MONITORS[0]}}
+
+
+bspc monitor HDMI-0 -d I II III IV V VI VII VIII IX
+bspc monitor DVI-I-0 -d X
+
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+
+bspc config focus_follows_pointer true
+
+bspc config border_width         1
+bspc config window_gap          11
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+#bspc rule -a Gimp desktop='^8' state=floating follow=on
+#bspc rule -a Chromium desktop='^2'
+#bspc rule -a mplayer2 state=floating
+#bspc rule -a Kupfer.py focus=on
+#bspc rule -a Screenkey manage=off
+
+
+# Rules
+bspc rule -r '*'
+
+bspc rule -a Emacs state=tiled
+bspc rule -a Firefox desktop='^1' split_ratio=0.32
+bspc rule -a feh state=fullscreen
+bspc rule -a 'Emacs:org*' state=floating
+bspc rule -a 'Emacs:scratch' state=floating
+bspc rule -a '*:scratch' state=floating sticky=on center=on border=off rectangle=1000x800+0+0
+bspc rule -a Zathura state=fullscreen
+
+###
+### #!/nix/store/9si14qjcz8072c0v42zbkglq08s2cg04-bash-4.4-p23/bin/sh
+###
