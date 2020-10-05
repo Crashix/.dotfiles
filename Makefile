@@ -9,6 +9,9 @@ default: config dunst emacs git gtk i3 lf sh termite vim xorg zsh
 
 all: config bash dunst emacs git gtk i3 isync lf readline sh termite vim xdg xorg zsh
 
+audio: config
+	stow audio
+
 bash: config sh readline
 	stow bash
 
