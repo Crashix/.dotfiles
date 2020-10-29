@@ -11,6 +11,11 @@
     borgbackup
     gtop
     android-file-transfer
+    emacs
+    ripgrep
+    coreutils
+    fd
+    clang
   ];
 
 }
