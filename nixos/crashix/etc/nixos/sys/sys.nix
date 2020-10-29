@@ -93,6 +93,8 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  # PulseAudio configuration for headset.
+  hardware.pulseaudio.daemon.config = { default-sample-channels = 8; };
 
 
   # ---------- Localisation ------------
