@@ -5,7 +5,7 @@ OS   := nixos
 
 # =========   Dotfiles with GNU Stow   =========
 
-default: config dunst emacs git gtk i3 lf sh termite vim xorg zsh
+default: config dunst emacs git gtk i3 lf nixpkgs sh termite vim xorg zsh
 
 all: config bash dunst emacs git gtk i3 isync lf readline sh termite vim xdg xorg zsh
 
@@ -40,6 +40,9 @@ isync: config
 
 lf: config
 	stow lf
+
+nixpkgs: config
+    stow nixpkgs
 
 nixos: config_root
 	sudo stow ${HOST}
