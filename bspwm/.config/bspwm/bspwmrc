@@ -1,13 +1,17 @@
-#!/run/current-system/sw/bin/bash
+#!/bin/bash
 
 # ------------- STARTUP ---:
 
 # Keybind:
 sxhkd -m -1 &
 
+# Set X Keyboard Layout:
+setxkbmap fr
+
 # Sound:
 alsactl --file ~/.config/asound.state restore
 # Use : 'alsactl --file ~/.config/asound.state store' to save a new config
+xset -b # Disable PC Speaker
 
 # Nvidia:
 # nvidia-settings --load-config-only # NVIDIA settings for dual monitor

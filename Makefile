@@ -42,7 +42,7 @@ lf: config
 	stow lf
 
 nixpkgs: config
-    stow nixpkgs
+	stow nixpkgs
 
 nixos: config_root
 	sudo stow ${HOST}
